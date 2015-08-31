@@ -10,8 +10,8 @@ if [ $# -ne 2 -o ! -e $2 ]; then
 	usage
 fi
 mkpath=$2
-rpath=$2
+rpath=$(dirname $2)
 if [ -f $2 ]; then
 	mkpath=$(dirname $2)
 fi
-rsync -au --rsync-path='mkdir -p ~/.veil'"$mkpath"' && rsync' "$2" "$1"':~/.veil'"$rpath"
+rsync -Cau --rsync-path='mkdir -p ~/.veil'"$mkpath"' && rsync' "$2" "$1"':~/.veil'"$rpath"
