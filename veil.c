@@ -103,11 +103,13 @@ void checkevent(SubRegistry * registry, int txid, char *epath,
 			if (sub->txid == txid)
 				doprint = 0;
 			if (doprint) {
+				fprintf(stderr, "txid: %d ", txid);
 				printf("%s\n", sub->path);
 				sub->txid = txid;
 			}
 		}
 	}
+	free(sub);
 }
 
 void cbprint(ConstFSEventStreamRef streamRef,
@@ -121,8 +123,9 @@ void cbprint(ConstFSEventStreamRef streamRef,
 	static int s = 0;
 	SubEntry *sub;
 	char **paths = eventPaths;
+	s++;
 	for (i = 0; i < numEvents; i++)
-		checkevent(registry, ++s, paths[i], eventFlags[i]);
+		checkevent(registry, s, paths[i], eventFlags[i]);
 }
 
 int main(int argc, char *argv[])
