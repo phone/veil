@@ -1,0 +1,7 @@
+#!/bin/bash
+mkpath=$2
+rpath=$2
+if [ -f $2 ]; then
+	mkpath=$(dirname $2)
+fi
+rsync -au --rsync-path='mkdir -p ~/.veil'"$mkpath"' && rsync' "$2" "$1"':~/.veil'"$rpath"
