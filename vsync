@@ -1,4 +1,14 @@
 #!/bin/bash
+usage() {
+	cat <<-END 2>&1
+	vsync USER@HOST FILE
+	use rsync to sync FILE to remote USER@HOST
+END
+	exit
+}
+if [ $# -ne 2 -o ! -e $2 ]; then
+	usage
+fi
 mkpath=$2
 rpath=$2
 if [ -f $2 ]; then
