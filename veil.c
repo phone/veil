@@ -103,7 +103,7 @@ void checkevent(SubRegistry * registry, int txid, char *epath,
 			if (sub->txid == txid)
 				doprint = 0;
 			if (doprint) {
-				fprintf(stderr, "txid: %d ", txid);
+//                              fprintf(stderr, "txid: %d ", txid);
 				printf("%s\n", sub->path);
 				sub->txid = txid;
 			}
@@ -154,7 +154,7 @@ int main(int argc, char *argv[])
 	if ((lines = loadconf(registry, conf)) < 1) {
 		free(registry);
 		registry = NULL;
-	}		
+	}
 
 	CFArrayRef cpaths;
 	FSEventStreamRef stream;
