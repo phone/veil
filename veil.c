@@ -105,6 +105,7 @@ void checkevent(SubRegistry * registry, int txid, char *epath,
 			if (doprint) {
 //                              fprintf(stderr, "txid: %d ", txid);
 				printf("%s\n", sub->path);
+				fflush(NULL);
 				sub->txid = txid;
 			}
 		}
