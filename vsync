@@ -1,6 +1,6 @@
 #!/bin/bash
 usage() {
-	cat <<-END 2>&1
+	cat <<-END >&2
 	vsync USER@HOST FILE
 	use rsync to sync FILE to remote USER@HOST
 END
